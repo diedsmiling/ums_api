@@ -1,23 +1,23 @@
 [
-  {
-    "id": 1,
-    "firstName": "Bruce",
-    "lastName": "Wayne",
-    "nickname": "Batman",
-    "email": "batmanpewpew@gmail.com"
-  },
-  {
-   "id": 2,
-    "firstName": "Anthony",
-    "lastName": "Stark",
-    "nickname": "Iron Man",
-    "email": "supertony_63@yahoo.com"
-  },
-  {
-   "id": 3,
-    "firstName": "Jack",
-    "lastName": "Napier",
-    "nickname": "Joker",
-    "email": "whyareyousoseriuos@gmail.com"
-  }
+    {
+        "id": 2,
+        "firstName": "Anthony",
+        "lastName": "Stark",
+        "nickname": "Iron Man",
+        "email": "supertony_63@yahoo.com"
+    },
+    {
+        "id": 3,
+        "firstName": "Jack",
+        "lastName": "Napier",
+        "nickname": "Joker",
+        "email": "whyareyousoseriuos@gmail.com"
+    },
+    {
+        "id": 4,
+        "firstName": "1Nicholas",
+        "lastName": "Fury",
+        "nickname": "Scorpio",
+        "email": "scorpio_lol@gmail.com"
+    }
 ]
