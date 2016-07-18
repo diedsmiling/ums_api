@@ -1,0 +1,26 @@
+[
+  {
+    "idUser": 1,
+    "idGroup": 1
+  },
+  {
+    "idUser": 1,
+    "idGroup": 2
+  },
+  {
+    "idUser": 2,
+    "idGroup": 1
+  },
+  {
+    "idUser": 2,
+    "idGroup": 2
+  },
+  {
+    "idUser": 3,
+    "idGroup": 2
+  },
+  {
+    "idUser": 3,
+    "idGroup": 3
+  }
+]
