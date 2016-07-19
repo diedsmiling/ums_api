@@ -3,6 +3,7 @@
 const koa = require('koa')
 const Router = require('koa-router')
 const Users = require('./lib/Users')
+const Groups = require('./lib/Groups')
 
 const app = koa()
 const router = new Router()
@@ -67,6 +68,49 @@ app.use(function *(next) {
     this.status = err.status
     this.body = {code: err.status, message: err.message}
     this.app.emit('error', err, this)
+  }
+})
+
+router.get('/v1/groups', function * () {
+  const users = yield Groups.findAll()
+  this.body = {
+    users
+  }
+})
+
+router.get('/v1/groups/:id', function * () {
+  const user = yield Groups.findOne(this.params.id)
+  this.body = {
+    user
+  }
+})
+
+router.post('/v1/groups', function * () {
+  let group = this.request.body.group
+  if (typeof group === 'string') {
+    group = JSON.parse(group)
+  }
+  yield Groups.add(group)
+  this.body = {
+    status: 'ok'
+  }
+})
+
+router.put('/v1/groups', function * () {
+  let group = this.request.body.group
+  if (typeof group === 'string') {
+    group = JSON.parse(group)
+  }
+  yield Groups.update(group)
+  this.body = {
+    status: 'ok'
+  }
+})
+
+router.delete('/v1/groups/:id', function * () {
+  yield Groups.destroy(this.params.id)
+  this.body = {
+    status: 'ok'
   }
 })
 
