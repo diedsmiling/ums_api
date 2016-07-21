@@ -9,9 +9,10 @@ const app = koa()
 const router = new Router()
 
 // Middlewares
+app.use(require('./middlewares/bodyParser'))
 app.use(require('./middlewares/logger'))
 app.use(require('./middlewares/cors'))
-app.use(require('./middlewares/bodyParser'))
+
 
 router.get('/v1/users', function * () {
   const users = yield Users.findAll()
@@ -29,6 +30,7 @@ router.get('/v1/users/:id', function * () {
 
 router.post('/v1/users', function * () {
   let user = this.request.body.user
+  console.log(this.request.body)
   if (typeof user === 'string') {
     user = JSON.parse(user)
   }
@@ -39,6 +41,7 @@ router.post('/v1/users', function * () {
 })
 
 router.put('/v1/users', function * () {
+  console.log(this.request.body)
   let user = this.request.body.user
   if (typeof user === 'string') {
     user = JSON.parse(user)
@@ -61,8 +64,6 @@ app.use(function *(next) {
     yield next
   } catch (err) {
     err.status = err.status || 500
-    console.log(err)
-    err.message = err.expose ? err.message : 'Kaboom!'
 
     // Set our response.
     this.status = err.status
@@ -72,16 +73,16 @@ app.use(function *(next) {
 })
 
 router.get('/v1/groups', function * () {
-  const users = yield Groups.findAll()
+  const groups = yield Groups.findAll()
   this.body = {
-    users
+    groups
   }
 })
 
 router.get('/v1/groups/:id', function * () {
-  const user = yield Groups.findOne(this.params.id)
+  const group = yield Groups.findOne(this.params.id)
   this.body = {
-    user
+    group
   }
 })
 
