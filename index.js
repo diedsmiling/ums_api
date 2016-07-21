@@ -118,4 +118,4 @@ router.delete('/v1/groups/:id', function * () {
 app
   .use(router.routes())
   .use(router.allowedMethods())
-  .listen(3300)
+  .listen(process.env.PORT || 3300)
